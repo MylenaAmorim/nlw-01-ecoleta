@@ -1,0 +1,55 @@
+
+{#
+        COM FORMATAÇÃO DO NUNJUCKS (chamando o layout.html, logo simplificando o código)
+#}
+
+{% extends "layout.html" %}
+
+
+{% set bodyId = "page-home" %}
+
+
+    {% block styles %}
+
+       <link rel="stylesheet" href="styles/css/home.css">
+       <link rel="stylesheet" href="styles/css/modal.css">
+
+    {% endblock styles %}
+    
+    
+    {% block content %}
+        <div class="content">
+
+                <header>
+                    <img src="icones/logo.svg" alt="Logomarca" >
+                    
+                    <a href="/create-point">
+                        <span></span>
+                        Cadrastre um ponto de coleta
+                    </a>
+                </header>
+
+                <main>
+
+                    <h1>Seu marketplace de coleta de resíduos </h1>
+                    
+                    <p>Ajudamos pessoas  a encontrarem pontos de coleta de forma eficiente.</p>
+        
+                    <a href="#"><span><img src="icones/search.svg" alt="" width="24px"></span><strong>Pesquisar pontos de coletas</strong></a>
+                    
+                </main>
+            
+            </div>
+    {% endblock content %}
+
+        
+        {% block modal %}
+              {% include "partials/modal.html" %}
+        {% endblock modal %}
+        
+
+{% block scripts %}
+    <script src="script/index.js"></script>
+{% endblock scripts %}
+ 
+    

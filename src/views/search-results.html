@@ -1,0 +1,71 @@
+{#
+        SEM FORMATAÇÃO DO NUNJUCKS
+#}
+
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ponto de coleta</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles/css/main.css">
+    <link rel="stylesheet" href="styles/css/search-results.css">
+    <link rel="stylesheet" href="styles/css/responsive.css">
+
+</head>
+<body>
+
+    <div id="page-search-results">
+
+
+       {% include "partials/page-header.html" %}
+
+        <main>
+
+        {% if total > 0 %}
+        
+
+            <h4>
+                <strong> {{ total }} </strong> encontrado
+            </h4>
+
+            <div class="cards">
+
+
+                {% for place in places %}
+
+                <div class="card">
+                    <img src="{{ place.image }}" alt="{{place.nome}}">
+               
+                    <h1>{{ place.name }}</h1>
+                    
+                    <h3>{{ place.items }}</h3>
+                    <p>
+                        {{ place.city }}, {{ place.state }} <br/>
+                        {{ place.address }}, {{ place.adress2 }} <br/>
+                        
+                    </p>
+                </div>
+
+                {% endfor %}       
+              
+            </div>
+
+        {% else %}
+        
+        <h4><strong>Nenhum</strong> local encontrado</h4>
+
+        {% endif %}
+
+        </main>
+        
+    </div>
+   
+</body>
+</html>
